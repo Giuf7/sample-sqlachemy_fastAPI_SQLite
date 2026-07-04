@@ -1,8 +1,8 @@
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from dal.models.exemple import Exemple
-from dal.Repositories.exemple_repository import ExempleRepository
-from dal.Repositories.user_repository import UserRepository
+from dal.repositories.exemple_repository import ExempleRepository
+from dal.repositories.user_repository import UserRepository
 from api.schemas.exemple import ExempleCreate, ExempleUpdate
 
 

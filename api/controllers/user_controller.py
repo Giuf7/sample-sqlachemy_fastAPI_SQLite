@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from dal.models.user import User
-from dal.Repositories.user_repository import UserRepository
+from dal.repositories.user_repository import UserRepository
 from api.schemas.user import UserCreate, UserUpdate
 
 

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from dal.models.exemple import Exemple
-from dal.Repositories.base_repository import BaseRepository
+from dal.repositories.base_repository import BaseRepository
 
 
 class ExempleRepository(BaseRepository[Exemple]):

@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
-from dal.database import get_db
+from dal.database import get_db_dependency
 from api.controllers.user_controller import UserController
-from api.schemas.user import UserCreate, UserUpdate, UserRead, UserReadWithItems
+from api.schemas.user import UserCreate, UserUpdate, UserRead, UserReadWithExemples
 
 router = APIRouter(prefix="/users", tags=["users"])
 
 
-def get_controller(db: Session = Depends(get_db)) -> UserController:
+def get_controller(db: Session = Depends(get_db_dependency)) -> UserController:
     return UserController(db)
 
 
@@ -16,7 +16,7 @@ def list_users(skip: int = 0, limit: int = 100, ctrl: UserController = Depends(g
     return ctrl.get_all(skip, limit)
 
 
-@router.get("/{user_id}", response_model=UserReadWithItems)
+@router.get("/{user_id}", response_model=UserReadWithExemples)
 def get_user(user_id: int, ctrl: UserController = Depends(get_controller)):
     return ctrl.get_by_id(user_id)
 

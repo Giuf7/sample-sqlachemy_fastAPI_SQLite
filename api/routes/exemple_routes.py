@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
-from dal.database import get_db
+from dal.database import get_db_dependency
 from api.controllers.exemple_controller import ExempleController
 from api.schemas.exemple import ExempleCreate, ExempleUpdate, ExempleRead
 
 router = APIRouter(prefix="/exemples", tags=["exemples"])
 
 
-def get_controller(db: Session = Depends(get_db)) -> ExempleController:
+def get_controller(db: Session = Depends(get_db_dependency)) -> ExempleController:
     return ExempleController(db)
 
 

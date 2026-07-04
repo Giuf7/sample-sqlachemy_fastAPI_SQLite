@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from dal.database import engine, Base
+from dal.database import init_db, test_connexion
 from dal.models import User, Exemple  # noqa: F401 — ensures models are registered before create_all
 from api.routes import user_router, exemple_router
 
-Base.metadata.create_all(bind=engine)
+test_connexion()
+init_db()
 
 app = FastAPI(title="Sample FastAPI + SQLAlchemy + SQLite", version="1.0.0")
 
