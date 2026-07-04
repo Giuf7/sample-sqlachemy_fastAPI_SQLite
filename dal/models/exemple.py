@@ -1,6 +1,7 @@
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from dal.database import Base
+from dal.models.user import User
 
 
 class Exemple(Base):

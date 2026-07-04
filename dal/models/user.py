@@ -1,6 +1,7 @@
 from sqlalchemy import String, Boolean
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from dal.database import Base
+from dal.models.exemple import Exemple
 
 
 class User(Base):
